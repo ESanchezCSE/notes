@@ -1,0 +1,76 @@
+Part Two:
+	PROCESS MANAGEMENT
+	A process can be thought of as a program in execution. It needs resources, such as CPU time, memory, files,
+and I/O devices, to accomplish its task. These resources are allocated to the process during its creation or while it
+is being executed.
+
+Chapter 3:
+	PROCESSES
+	A process is the unit of work in a modern time-sharing system. A system therefore consists of a collection of
+processes: operating-system processes executing system code and user processes executing user code.
+3.1 PROCESS CONCEPT
+	A batch system executes jobs, whereas a time-shared system has user programs, or tasks. All these activities
+are similar, so we call all of them processes.
+	There is an emphasize that a program by itself is not a process, but a passive entity, such as a file
+containing a list of instructions stored on disk (often called an executable file). A process is an active entity,
+with a program counter specifying the next instruction to execute and a set of associated resources.
+
+3.1.2 Process State
+	As a process executes, it changes state.
+1. New - being created.
+2. Running - being executed.
+3. Waiting - waiting for some event to occur.
+4. Ready - waiting to be assigned to a processor.
+5. Terminated - has finished executing.
+
+3.1.4 Threads
+	A process is a program that performs a single thread of execution.
+3.2 PROCESS SCHEDULING
+	The process scheduler selects an available process for execution on the CPU. The rest of the process will have
+to wait until more processors have become available.
+	When an interrupt occurs, the system needs to save the current context of the process running on the CPU so
+that it can resotre that context when its processing is done. This task is know as a context switch. Time spent doing
+context switching is pure overhead.
+
+pg 118 (Example of using for and exec commands)
+
+A process is independent if it cannot affect or be affected by the other processes executing in the system.
+Cooperating processes require an interprocess communication(IPC).
+
+3.4.2.3 Buffering
+	Messages exchanged by communicating processes reside in a temporary queue. There are three ways of
+implementation:
+1. Zero Capacity
+2. Bounded Capacity
+3. Unbounded Capacity
+
+3.5 EXAMPLES OF IPC SYSTEMS
+	3.5.1 An Example: POSIX Shared Memory
+	This part of the book has a great example of how to implement a shared-memory object using the shm_open()
+system call.
+
+/*This section of the book is filled with great examples of how to implement interprocess communications*/
+
+3.6 COMMUNICATION IN CLIENT-SERVER SYSTEMS
+	A socket is defined as an endpoint for communication. A pait of processes communicating over a network employ
+a pair of sockets - one for each process. Communication using sockets is considered a low-level form of communication between distributed processes.
+****Those interested in socket programming in C or C++, consult bibliographical notes at the end of this chapter.
+
+3.6.3 Pipes
+	A pipe acts as a conduit allowing two processes to communicate. When implementing, four things must be
+considered:
+1. Bidirectional, or unidirectional communication?
+2. Bidirectional, travel one way (half duplex), or both ways (duplex) at the same time.
+3. Parent child relationship exist?
+4. Communication over network, or only locally?
+
+
+3.7 SUMMARY
+	Communication in client-server systems may use:
+1. sockets
+2. remote procedure calls (RPCs)
+3. pipes
+
+Chapter 4:
+	THREADS
+
